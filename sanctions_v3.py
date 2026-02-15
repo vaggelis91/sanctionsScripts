@@ -1,9 +1,9 @@
-import FunkyBibi as fb
+import db_cons as fb
 import DSlogger
 from multiprocessing import Process, freeze_support
 
 
-db_con = fb.db_sqlserver_connect('fabric')
+db_con = fb.db_connect()
 
 pct_limit = 84.99
 procs_to_utilize = {'other': 9, 'person': 1, 'vessels': 3}  # # number of processes that will be used for each data bach
@@ -221,3 +221,4 @@ if __name__ == "__main__":
     except Exception as ex:
         print('Exception: ', str(ex))
         DSlogger.sanctions_logger('ERROR', [__file__, 'main()', str(ex)])
+
